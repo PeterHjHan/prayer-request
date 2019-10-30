@@ -27,8 +27,7 @@ class LoggedInPrayerForm extends Component {
         [name] : value
       }
     });
-
-    console.log(this.state.formInputs);
+    
   }
 
   handleSubmit(e) {
