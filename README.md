@@ -96,6 +96,8 @@ In the event of an integration to a bigger application, it must require NodeJs (
 
 ### 2.3 User Classes and Characteristics
 
+![erd](https://github.com/PeterHjHan/prayer-request/blob/master/frontend/public/images/ERD.png "ERD")
+
 * All users
   * interested on the visited religious group 
   * the knowledge and ability to complete a form on any devices (mobile, tablets, and desktops)
@@ -110,8 +112,6 @@ In the event of an integration to a bigger application, it must require NodeJs (
 * Content Administrator
   * Web developers will be responsible for maintaining database scalabilities, request maintenance, user maintenance, and application security.
   
-![erd](https://github.com/PeterHjHan/prayer-request/blob/master/frontend/public/images/ERD.png "ERD")
-
 ### 2.4 Operating Environment
 * This is a web-based application
 * AWS
