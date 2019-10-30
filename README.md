@@ -109,6 +109,8 @@ In the event of an integration to a bigger application, it must require NodeJs (
     * can complete Create and Read Operations. 
 * Content Administrator
   * Web developers will be responsible for maintaining database scalabilities, request maintenance, user maintenance, and application security.
+  
+![erd](https://github.com/PeterHjHan/prayer-request/blob/master/frontend/public/images/ERD.png "ERD")
 
 ### 2.4 Operating Environment
 * This is a web-based application
