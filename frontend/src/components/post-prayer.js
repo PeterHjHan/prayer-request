@@ -1,11 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Accordion, Button } from 'react-bootstrap';
 import { LoggedInPrayerForm } from './form';
 
 export default class PrayerTogglew extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

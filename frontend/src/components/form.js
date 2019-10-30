@@ -30,15 +30,26 @@ class LoggedInPrayerForm extends Component {
     
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
 
-    console.log(this.state.formInputs);
+    const request = await fetch('http://localhost:5000/prayers/new', {
+      method: "POST",
+      body: JSON.stringify(this.state.formInputs),
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": 'application/json'
+      }
+    }).catch((err)=> {
+      console.log(err);
+    })
+    const response = await request.json();
+    const jsonData = response;
   }
 
   render() {
     return (
-      <Form onClick={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Group controlId="formBasicPrayerTitle">
           <Form.Label>Prayer Title</Form.Label>
           <Form.Control onChange={this.handleChange} type="text" placeholder="Enter Prayer Title" />

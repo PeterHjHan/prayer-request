@@ -28,12 +28,11 @@ Table of Contents
     * 4.2 [Authentication and Authorization](#42-authentication-and-authorization-:-P(5))
     * 4.3 [Search Functions](#43-search-functions-:-P(4))
     * 4.4 [User Interactions](#44-user-interactions-:-P(4))
-  (#42-system-feature-2-and-so-on)
   * [System Routes](#system-routes)
     * 5.1 [Prayer Routes](#51-prayer-routes)
     * 5.2 [Type Route](#52-type-routes)
     * 5.3 [Organization Route](#53-organization-routes)
-    * 5.4 [Author Route](#54-author-routes)
+    * 5.4 [User Route](#54-user-routes)
     * 5.5 [Miscellaneous Route](#55-miscellaneous-routes)
   * [Other Nonfunctional Requirements](#other-nonfunctional-requirements)
     * 6.1 [Performance Requirements](#61-performance-requirements)
@@ -91,8 +90,8 @@ In the event of an integration to a bigger application, it must require NodeJs (
 
 ### 2.2 Product Functions
 
-* Authorized and authenticated users are able to complete CRUD operations and view the history on their created prayer requests.
-* non-authorized users are able to Create and Read operations. 
+* userized and authenticated users are able to complete CRUD operations and view the history on their created prayer requests.
+* non-userized users are able to Create and Read operations. 
 * All users will be able to search by type of prayer, specific words, or user's name
 
 ### 2.3 User Classes and Characteristics
@@ -158,7 +157,7 @@ Describe any items or issues that will limit the options available to the develo
 |Aws | Cloud-based service using it as IAAS
 |React| Version: 16.10 or greater; Responsible for Frontend
 |Node| Version: 12.11.1 or greater; Responsible for BackEnd
-|Auth0| third party app responsible for user authentication and authorization
+|Auth0| third party app responsible for user authentication and userization
 |Database | graphQL |
 
 ### 3.4 Communications Interfaces
@@ -182,14 +181,14 @@ More details on the following table :
 
 ### 4.1 CRUD operations : P(5)
 4.1.1   Description
-  * Authenticated and authorized users will have the ability to complete CRUD operations on their posted prayers.
+  * Authenticated and userized users will have the ability to complete CRUD operations on their posted prayers.
 4.1.2   Stimulus/Response Sequences
   1. Users will have a stable connection to the internet
   2. Users should receieve a 200 status code response when connecting to the DNS
   3. The main page of the application will be loaded when succesfully loaded
     * if the user does not have the right browser compatibility, a pop-up will be opened to suggest to open with the right browser.
 4.1.3   Functional Requirements
-  * Update and Delete can only performed for authenticated and authorized users.
+  * Update and Delete can only performed for authenticated and userized users.
   * Create
     * Users should use the <i>form</i> element in the main page to create
   * Read
@@ -201,9 +200,9 @@ More details on the following table :
   * Delete
     * Users can delete their own posted prayers regardless if the post has been prayed or not.
 
-### 4.2 Authentication and Authorization : P(5)
+### 4.2 Authentication and userization : P(5)
 4.2.1 Description
-  * This will use a third-party Auth0 to assist with authorization and authentication.
+  * This will use a third-party Auth0 to assist with userization and authentication.
   * Full tutorial can be found from the [Auth0's main tutorial](https://auth0.com/)
 
 ### 4.3 Search Functions : P(4)
@@ -221,8 +220,8 @@ More details on the following table :
 | / | GET | Gets the main webpage|
 | /prayers| GET | Retrieves all Prayers
 | /prayers/prayer_id| GET | Retrieves a single prayer id
-| /prayers/prayer_id| POST | Updates an existing prayer
-| /prayers/prayer_id/like| PUT | Likes the prayer_id
+| /prayers/prayer_id| PUT | Updates an existing prayer
+| /prayers/prayer_id/follow| PUT | Follow the prayer_id
 | /prayers/new | POST | Creates a new prayer|
 | /prayers/prayer_id/delete | DELETE| deletes existing prayer
 
@@ -237,15 +236,16 @@ More details on the following table :
 | /org | GET | List of all organization names
 | /org/organization_name | GET | Retrieves all prayers of the organization
 
-### 5.4 Author Routes
+### 5.4 user Routes
 | Route | Type | Description |
 |------|-------|-------------|
-| /a/author_name/ | GET | dashboard for logged in user
-| /a/author_name/prayers/ | GET | show all prayers posted by author
-| /a/author_name/liked/ | GET | Show all prayer that the author has liked
-| /a/author_name/org | GET | Able to configure an organization if organization admin
-| /a/author_name/delete | DELETE | Deletes all the information associated with the user
-| /a/author_name/edit | PUT | Updates author's information 
+| /a/user_name/ | GET | dashboard for logged in user
+| /a/user_name/prayers/ | GET | show all prayers posted by user
+| /a/user_name/follow/ | GET | Show all prayer that the user has follow
+| /a/user_name/org | GET | Get the contents of the registered organization 
+| /a/user_name/org | PUT | Able to configure an organization if organization admin
+| /a/user_name/delete | DELETE | Deletes all the information associated with the user
+| /a/user_name/edit | PUT | Updates user's information 
 
 ### 5.5 Admin Routes
 | Route | Type | Description |
