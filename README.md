@@ -24,10 +24,10 @@ Table of Contents
     * 3.3 [Software Interfaces](#33-software-interfaces) 
     * 3.4 [Communications Interfaces](#34-communications-interfaces)
   * [System Features](#system-features)
-    * 4.1 [CRUD operations](#41-CRUD-operations-:-P(5))
-    * 4.2 [Authentication and Authorization](#42-authentication-and-authorization-:-P(5))
-    * 4.3 [Search Functions](#43-search-functions-:-P(4))
-    * 4.4 [User Interactions](#44-user-interactions-:-P(4))
+    * 4.1 [CRUD operations](#41-CRUD-operations-P5)
+    * 4.2 [Authentication and Authorization](#42-authentication-and-authorization-P5)
+    * 4.3 [Search Functions](#43-search-functions-P4)
+    * 4.4 [User Interactions](#44-user-interactions-P4)
   * [System Routes](#system-routes)
     * 5.1 [Prayer Routes](#51-prayer-routes)
     * 5.2 [Type Route](#52-type-routes)
@@ -179,7 +179,7 @@ More details on the following table :
 |2| Ideas that are implement
 |1| Unnecessary or does not meet the product's core values
 
-### 4.1 CRUD operations : P(5)
+### 4.1 CRUD operations P5
 4.1.1   Description
   * Authenticated and userized users will have the ability to complete CRUD operations on their posted prayers.
 4.1.2   Stimulus/Response Sequences
@@ -200,16 +200,16 @@ More details on the following table :
   * Delete
     * Users can delete their own posted prayers regardless if the post has been prayed or not.
 
-### 4.2 Authentication and userization : P(5)
+### 4.2 Authentication and userization P5
 4.2.1 Description
   * This will use a third-party Auth0 to assist with userization and authentication.
   * Full tutorial can be found from the [Auth0's main tutorial](https://auth0.com/)
 
-### 4.3 Search Functions : P(4)
+### 4.3 Search Functions P4
 4.3.1 Description
   * Users should be able to search based on keywords
 
-### 4.4 User Interactions : P(4)
+### 4.4 User Interactions P4
 4.4.1 Description
   * Users should be able to like or unlike other authenticated prayers 
 
