@@ -1,35 +1,38 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
+const prayerControler = require('../controller/prayer');
+
+//Retrieves all prayers
 router.get('/', function(req, res, next) {
-  //Retrieves all prayers
   res.send('HELLO WORLD This is the Prayer');
 });
 
-router.get('/:prayer_id', async (req,res) => {
-  //Retrieves a Single Prayer Id
+//Retrieves a Single Prayer Id
+router.get('/:prayer_id', (req,res) => {
   let prayer_id  = req.params.prayer_id;
 });
 
-router.put('/:prayer_id', async (req,res) => {
-  //Updates an existing a Single Prayer Id
+//Updates an existing a Single Prayer Id
+router.put('/:prayer_id', (req,res) => {
   let prayer_id  = req.params.prayer_id;
 });
 
-router.put('/:prayer_id/follow', async (req, res) => {
-  //Allows logged in user to Follow a prayer so they can help with prayer as well
+//Allows logged in user to Follow a prayer so they can help with prayer as well
+router.put('/:prayer_id/follow', (req, res) => {
   let prayer_id = req.params.prayer_id;
 });
 
-router.post('/new', async (req, res) => {
-  //creates a new prayer when the form is submitted
+//creates a new prayer when the form is submitted
+router.post('/new', (req, res) => {
   let data = req.body;
 
-  console.log(data);
+  console.log("POST CALLED");
+
+  prayerControler.createPrayer(data);
 });
 
-router.delete(':prayer_id/delete', async (req, res) => {
+router.delete(':prayer_id/delete', (req, res) => {
   //deletes a prayer request, only could be completed when logged in and confirmed
   //destructive method, requires additional confirmation
   let prayer_id = req.params.prayer_id;

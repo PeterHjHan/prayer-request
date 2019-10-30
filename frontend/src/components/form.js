@@ -30,35 +30,35 @@ class LoggedInPrayerForm extends Component {
     
   }
 
-  async handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
 
-    const request = await fetch('http://localhost:5000/prayers/new', {
+    fetch('http://localhost:5000/prayers/new', {
       method: "POST",
       body: JSON.stringify(this.state.formInputs),
       headers: {
         'Accept': 'application/json',
         "Content-Type": 'application/json'
       }
+    }).then((res) => {
+      console.log("COMPLETED", res);
     }).catch((err)=> {
       console.log(err);
-    })
-    const response = await request.json();
-    const jsonData = response;
+    });
   }
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Form.Group controlId="formBasicPrayerTitle">
+        <Form.Group controlId="prayerTitle">
           <Form.Label>Prayer Title</Form.Label>
           <Form.Control onChange={this.handleChange} type="text" placeholder="Enter Prayer Title" />
         </Form.Group>
-        <Form.Group controlId="formBasicPrayerContext">
+        <Form.Group controlId="prayerContext">
           <Form.Label>Context</Form.Label>
           <Form.Control onChange={this.handleChange} as='textarea' rows='5' placeholder="What is your prayer?" />
         </Form.Group>
-        <Form.Group controlId="formBasicPrayerType">
+        <Form.Group controlId="prayerType">
           <Form.Label>기도종류</Form.Label>
           <Form.Control onChange={this.handleChange} as="select">
             {prayerTypes.map((type,index) => (

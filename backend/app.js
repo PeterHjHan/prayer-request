@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const knex = require('knex');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -26,6 +27,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.set('view engine', 'pug');  
+
 app.use('/', indexRouter);
 app.use('/u', usersRouter);
 app.use('/prayers', prayerRouter);
@@ -34,8 +37,9 @@ app.use('/org', organizationRouter);
 app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(404).send('404 error Something broke');
 });
 
 // error handler
