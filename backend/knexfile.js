@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       host:'127.0.0.1',
       user: 'peterhan',
-      database: 'prayer',
+      database: 'warroom',
     }
   },
 
