@@ -26,9 +26,6 @@ router.put('/:prayer_id/follow', (req, res) => {
 //creates a new prayer when the form is submitted
 router.post('/new', (req, res) => {
   let data = req.body;
-
-  console.log("POST CALLED");
-
   prayerControler.createPrayer(data);
 });
 
