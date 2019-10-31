@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import { Accordion, Button } from 'react-bootstrap';
-import { LoggedInPrayerForm } from './form';
+import { LoggedInPrayerForm, NotLoggedInPrayerForm } from './form';
+import { useAuth0 } from "../react-auth0-spa";  
 
-export default class PrayerTogglew extends Component {
+const PrayerToggle = () => {
+  const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
 
-  render() {
-    return (
-        <Accordion defaultActiveKey='0'>
-          <Accordion.Toggle as={Button} variant="link" eventKey="0">
-            Open 
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey='0'>
-            <LoggedInPrayerForm/>
-          </Accordion.Collapse>
-        </Accordion>
-    )
-  }
-
+  return (
+    <Accordion defaultActiveKey='0'>
+    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+      Open 
+    </Accordion.Toggle>
+    <Accordion.Collapse eventKey='0'>
+      {/* {isAuthenticated ? <LoggedInPrayerForm/> : <NotLoggedInPrayerForm/>} */}
+      <LoggedInPrayerForm />
+      
+    </Accordion.Collapse>
+  </Accordion>
+  )
 }
+
+export default PrayerToggle;

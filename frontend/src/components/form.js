@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap';
+import { useAuth0 } from "../react-auth0-spa";
 
 const prayerTypes = [ '감사기도', '선교기도', '금식기도', '새벽기도', '물질기도' ]
 
@@ -84,21 +85,23 @@ class NotLoggedInPrayerForm extends Component {
   render() {
     return (
       <Form>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Prayer Title</Form.Label>
-          <Form.Control type="text" placeholder="Enter Prayer Title" />
-          <Form.Text className="text-muted">
-            What is your Prayer about?
-          </Form.Text>
-        </Form.Group>
+          {/* <Form.Group controlId="formBasicEmail">
+            <Form.Label>Prayer Title</Form.Label>
+            <Form.Control type="text" placeholder="Enter Prayer Title" />
+            <Form.Text className="text-muted">
+              What is your Prayer about?
+            </Form.Text>
+          </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Request
-        </Button>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Request
+          </Button> */}
+
+          <Button>You are not logged in</Button>
       </Form>
     )
   }
